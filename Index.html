@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Roast Generator</title>
+  <style>
+    body { font-family: Arial, sans-serif; padding: 30px; background: #fafafa; }
+    input, button { padding: 10px; font-size: 16px; }
+    #output { margin-top: 20px; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>🔥 Roast Generator 🔥</h1>
+  <p>Type in something you want to roast:</p>
+  <input type="text" id="inputWord" placeholder="e.g. Coldplay">
+  <button onclick="generateRoast()">Roast it!</button>
+  
+  <div id="output"></div>
+
+  <script>
+    function generateRoast() {
+      const word = document.getElementById("inputWord").value.trim();
+      if (!word) return;
+      
+      const patterns = [
+        `${word}? More like ${word.toLowerCase()}sucks.`,
+        `${word}? More like Crap${word}.`,
+        `${word}? More like ${word.toLowerCase()}-trash.`,
+        `${word}? More like ${word.toLowerCase()}-yak.`,
+        `${word}? More like ${word.toLowerCase()}-diarrhea.`,
+        `${word}? More like ${word.toLowerCase()}-garbage.`,
+        `${word}? More like ${word.toLowerCase()}-dumpster.`,
+        `${word}? More like ${word.toLowerCase()}-boohoo.`
+      ];
+      
+      const roast = patterns[Math.floor(Math.random() * patterns.length)];
+      document.getElementById("output").innerText = roast;
+    }
+  </script>
+</body>
+</html>
